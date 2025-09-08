@@ -29,4 +29,5 @@ const TextInput = ({
   );
 };
 
+export { TextInput };
 export default TextInput;

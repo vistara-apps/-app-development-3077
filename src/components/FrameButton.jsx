@@ -30,4 +30,5 @@ const FrameButton = ({
   );
 };
 
+export { FrameButton };
 export default FrameButton;

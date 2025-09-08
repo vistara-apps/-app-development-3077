@@ -56,4 +56,5 @@ const JurisdictionSelector = ({
   );
 };
 
+export { JurisdictionSelector };
 export default JurisdictionSelector;
