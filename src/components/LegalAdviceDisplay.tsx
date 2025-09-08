@@ -64,13 +64,87 @@ export function LegalAdviceDisplay({ advice }: LegalAdviceDisplayProps) {
         </InfoCard>
       )}
 
-      {/* Sources */}
-      {advice.sources && advice.sources.length > 0 && (
+      {/* Legal Citations */}
+      {advice.citations && advice.citations.length > 0 && (
         <InfoCard variant="default">
           <div className="flex items-start gap-3">
             <ExternalLink className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
             <div className="flex-1">
               <h3 className="text-lg font-semibold text-white mb-3">Legal References</h3>
+              <div className="space-y-3">
+                {advice.citations.map((citation, index) => (
+                  <div key={index} className="bg-white/10 rounded-lg p-3">
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="flex-1">
+                        <h4 className="text-white font-medium text-sm">{citation.title}</h4>
+                        <p className="text-accent text-sm font-mono">{citation.citation}</p>
+                        <p className="text-white/70 text-sm mt-1">{citation.summary}</p>
+                      </div>
+                      {citation.url && (
+                        <a
+                          href={citation.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-accent hover:text-white transition-colors"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </InfoCard>
+      )}
+
+      {/* Legal Resources */}
+      {advice.resources && advice.resources.length > 0 && (
+        <InfoCard variant="default">
+          <div className="flex items-start gap-3">
+            <ExternalLink className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
+            <div className="flex-1">
+              <h3 className="text-lg font-semibold text-white mb-3">Helpful Resources</h3>
+              <div className="space-y-3">
+                {advice.resources.map((resource, index) => (
+                  <div key={index} className="bg-white/10 rounded-lg p-3">
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <h4 className="text-white font-medium text-sm">{resource.title}</h4>
+                          {resource.isOfficial && (
+                            <span className="bg-accent/20 text-accent text-xs px-2 py-1 rounded-full">
+                              Official
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-white/70 text-sm">{resource.description}</p>
+                      </div>
+                      <a
+                        href={resource.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent hover:text-white transition-colors"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </InfoCard>
+      )}
+
+      {/* Sources (fallback) */}
+      {advice.sources && advice.sources.length > 0 && (
+        <InfoCard variant="default">
+          <div className="flex items-start gap-3">
+            <ExternalLink className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
+            <div className="flex-1">
+              <h3 className="text-lg font-semibold text-white mb-3">Additional Sources</h3>
               <div className="space-y-2">
                 {advice.sources.map((source, index) => (
                   <div key={index} className="text-white/80 text-sm">
