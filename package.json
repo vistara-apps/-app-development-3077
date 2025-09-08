@@ -19,8 +19,8 @@
     "x402-axios": "^0.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "lucide-react": "^0.263.1",
-    "openai": "^4.20.0"
+    "openai": "^4.20.0",
+    "lucide-react": "^0.263.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
